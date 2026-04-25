@@ -20,6 +20,8 @@ export default {
       fontFamily: {
         sans: ['"DM Sans"', 'sans-serif'],
         display: ['"DM Serif Display"', 'serif'],
+        heading: ['"Plus Jakarta Sans"', 'sans-serif'],
+        accent: ['"Sora"', 'sans-serif'],
       }
     },
   },
