@@ -1,5 +1,5 @@
-import React, { useRef } from 'react';
-import { motion, useMotionValue } from 'framer-motion';
+import React, { useRef, useState } from 'react';
+import { motion, useMotionValue, AnimatePresence } from 'framer-motion';
 import annoraLogo from '../src/assets/Annora Logo.png';
 
 /* ─── Magnetic element ─── */
@@ -28,7 +28,18 @@ const fadeUp = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.25, 1, 0.5, 1] } }
 };
 
+const navLinks = [
+  { label: 'Home Page', href: '#' },
+  { label: 'About Us', href: '#' },
+  { label: 'Products', href: '#' },
+  { label: 'News and Events', href: '#' },
+  { label: 'Careers', href: '#' },
+  { label: 'Pharmacovigilance', href: '#' },
+  { label: 'Contact', href: '#', bold: true },
+];
+
 const LandingPage = () => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
     /* Mobile: natural scroll | Desktop (lg+): locked to viewport */
     <div className="w-full bg-white flex flex-col overflow-x-hidden min-h-screen lg:h-dvh lg:max-h-dvh lg:overflow-hidden">
@@ -60,21 +71,88 @@ const LandingPage = () => {
       >
         <img src={annoraLogo} alt="Annora Pharma Logo" className="h-6 lg:h-6 object-contain" />
         <div className="hidden lg:flex items-center gap-6 xl:gap-8">
-          <a href="#" className="text-[#1a1a1a]/50 text-[11px] xl:text-[12px] font-sans hover:text-[#1a1a1a] transition-colors">Home Page</a>
-          <a href="#" className="text-[#1a1a1a]/50 text-[11px] xl:text-[12px] font-sans hover:text-[#1a1a1a] transition-colors">About Us</a>
-          <a href="#" className="text-[#1a1a1a]/50 text-[11px] xl:text-[12px] font-sans hover:text-[#1a1a1a] transition-colors">Products</a>
-          <a href="#" className="text-[#1a1a1a]/50 text-[11px] xl:text-[12px] font-sans hover:text-[#1a1a1a] transition-colors">News and Events</a>
-          <a href="#" className="text-[#1a1a1a]/50 text-[11px] xl:text-[12px] font-sans hover:text-[#1a1a1a] transition-colors">Careers</a>
-          <a href="#" className="text-[#1a1a1a]/50 text-[11px] xl:text-[12px] font-sans hover:text-[#1a1a1a] transition-colors">Pharmacovigilance</a>
-          <a href="#" className="text-[#1a1a1a] font-semibold text-[11px] xl:text-[12px] font-sans hover:text-[#0e7065] transition-colors">Contact</a>
+          {navLinks.map((link) => (
+            <a key={link.label} href={link.href}
+              className={`text-[11px] xl:text-[12px] font-sans transition-colors ${
+                link.bold
+                  ? 'text-[#1a1a1a] font-semibold hover:text-[#0e7065]'
+                  : 'text-[#1a1a1a]/50 hover:text-[#1a1a1a]'
+              }`}>
+              {link.label}
+            </a>
+          ))}
         </div>
-        {/* Mobile hamburger placeholder */}
-        <button className="lg:hidden flex flex-col gap-1.5 p-2" aria-label="Menu">
+        {/* Mobile hamburger */}
+        <button
+          className="lg:hidden flex flex-col gap-1.5 p-2 relative z-50"
+          aria-label="Menu"
+          onClick={() => setMobileMenuOpen(true)}
+        >
           <span className="w-5 h-[1.5px] bg-[#1a1a1a]" />
           <span className="w-5 h-[1.5px] bg-[#1a1a1a]" />
           <span className="w-3.5 h-[1.5px] bg-[#1a1a1a]" />
         </button>
       </motion.header>
+
+      {/* ─── Mobile Nav Overlay ─── */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ x: '100%' }}
+            animate={{ x: 0 }}
+            exit={{ x: '100%' }}
+            transition={{ type: 'tween', duration: 0.35, ease: [0.25, 1, 0.5, 1] }}
+            className="fixed inset-0 z-50 bg-white flex flex-col"
+          >
+            {/* Close header */}
+            <div className="flex items-center justify-between px-5 py-4 flex-shrink-0">
+              <img src={annoraLogo} alt="Annora Pharma Logo" className="h-6 object-contain" />
+              <button
+                onClick={() => setMobileMenuOpen(false)}
+                className="p-2"
+                aria-label="Close menu"
+              >
+                <svg className="w-6 h-6 text-[#1a1a1a]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+
+            {/* Nav links */}
+            <nav className="flex-1 flex flex-col justify-center px-8 gap-1">
+              {navLinks.map((link, i) => (
+                <motion.a
+                  key={link.label}
+                  href={link.href}
+                  initial={{ opacity: 0, x: 40 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.1 + i * 0.05, duration: 0.4, ease: [0.25, 1, 0.5, 1] }}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`text-[1.6rem] font-display py-3 border-b border-[#1a1a1a]/5 transition-colors ${
+                    link.bold
+                      ? 'text-[#0e7065]'
+                      : 'text-[#1a1a1a]/70 hover:text-[#0e7065]'
+                  }`}
+                >
+                  {link.label}
+                </motion.a>
+              ))}
+            </nav>
+
+            {/* Bottom CTA */}
+            <div className="px-8 pb-10 flex-shrink-0">
+              <a href="mailto:info@annorapharma.com"
+                onClick={() => setMobileMenuOpen(false)}
+                className="bg-[#0e7065] text-white text-[12px] font-sans font-semibold tracking-wider uppercase px-6 py-4 inline-flex items-center gap-3 w-full justify-center">
+                Partner with us
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* ─── Main: Bento grid ─── */}
       <motion.main
