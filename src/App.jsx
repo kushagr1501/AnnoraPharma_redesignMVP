@@ -44,11 +44,22 @@ const LandingPage = () => {
     /* Mobile: natural scroll | Desktop (lg+): locked to viewport */
     <div className="w-full bg-white flex flex-col overflow-x-hidden min-h-screen lg:h-dvh lg:max-h-dvh lg:overflow-hidden">
 
-      {/* ─── Centered Banner ─── */}
-      <div className="w-full bg-[#0e7065] py-1.5 lg:py-2 flex items-center justify-center flex-shrink-0">
-        <span className="text-white/90 text-[10px] tracking-[0.25em] uppercase font-sans font-medium">
-          Committed to Excellence in Healthcare
-        </span>
+      {/* ─── Marquee Banner ─── */}
+      <div className="w-full bg-[#0e7065] py-1.5 lg:py-2 overflow-hidden flex whitespace-nowrap flex-shrink-0">
+        <motion.div
+          animate={{ x: ["0%", "-50%"] }}
+          transition={{ duration: 25, ease: "linear", repeat: Infinity }}
+          className="flex items-center"
+        >
+          {[...Array(12)].map((_, i) => (
+            <div key={i} className="flex items-center">
+              <span className="text-white/90 text-[10px] tracking-[0.25em] uppercase font-sans font-medium px-8">
+                Committed to Excellence in Healthcare
+              </span>
+              <div className="w-1.5 h-1.5 rounded-full bg-[#e69882]" />
+            </div>
+          ))}
+        </motion.div>
       </div>
 
       {/* ─── Nav ─── */}
