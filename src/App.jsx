@@ -50,6 +50,7 @@ const navLinks = [
 
 const LandingPage = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
   const { scrollY } = useScroll();
   const yBg = useTransform(scrollY, [0, 1000], [0, 300]);
   const yContent = useTransform(scrollY, [0, 1000], [0, 150]);
@@ -85,7 +86,25 @@ const LandingPage = () => {
     /* Mobile & Desktop: natural scroll for new sections */
     <div className="w-full bg-[#fdfbf7] flex flex-col overflow-x-hidden min-h-screen">
 
-      {/* Marquee Banner Removed */}
+      {/* ─── Preloader ─── */}
+      <AnimatePresence>
+        {!isLoaded && (
+          <motion.div
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            className="fixed inset-0 z-[100] bg-[#0a0a0a] flex items-center justify-center"
+          >
+            <motion.img 
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+              src={annoraLogo} 
+              alt="Loading" 
+              className="h-8 lg:h-10 object-contain brightness-0 invert opacity-50 animate-pulse" 
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* ─── Nav ─── */}
       <motion.header
@@ -182,16 +201,17 @@ const LandingPage = () => {
       {/* ─── Main: Hero Section ─── */}
       <motion.section
         initial="hidden"
-        animate="visible"
-        className="relative w-full h-[100dvh] flex flex-col justify-between overflow-hidden"
+        animate={isLoaded ? "visible" : "hidden"}
+        className="relative w-full h-[100dvh] flex flex-col justify-between overflow-hidden bg-[#0a0a0a]"
       >
         {/* Full-screen background image — dimmed for mood with parallax */}
         <motion.div style={{ y: yBg }} className="absolute inset-0 w-full h-full">
           <motion.img
             initial={{ scale: 1.08 }}
-            animate={{ scale: 1 }}
+            animate={isLoaded ? { scale: 1 } : { scale: 1.08 }}
             transition={{ duration: 20, ease: 'linear' }}
             src={heroBg}
+            onLoad={() => setIsLoaded(true)}
             alt="Annora Pharma manufacturing facility"
             className="w-full h-full object-cover object-[center_20%]"
           />
