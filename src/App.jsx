@@ -44,22 +44,11 @@ const LandingPage = () => {
     /* Mobile: natural scroll | Desktop (lg+): locked to viewport */
     <div className="w-full bg-white flex flex-col overflow-x-hidden min-h-screen lg:h-dvh lg:max-h-dvh lg:overflow-hidden">
 
-      {/* ─── Marquee Banner ─── */}
-      <div className="w-full bg-[#0e7065] py-1.5 lg:py-2 overflow-hidden flex whitespace-nowrap flex-shrink-0">
-        <motion.div
-          animate={{ x: ["0%", "-50%"] }}
-          transition={{ duration: 25, ease: "linear", repeat: Infinity }}
-          className="flex items-center"
-        >
-          {[...Array(12)].map((_, i) => (
-            <div key={i} className="flex items-center">
-              <span className="text-white/90 text-[10px] tracking-[0.25em] uppercase font-sans font-medium px-8">
-                Committed to Excellence in Healthcare
-              </span>
-              <div className="w-1.5 h-1.5 rounded-full bg-[#e69882]" />
-            </div>
-          ))}
-        </motion.div>
+      {/* ─── Centered Banner ─── */}
+      <div className="w-full bg-[#0e7065] py-1.5 lg:py-2 flex items-center justify-center flex-shrink-0">
+        <span className="text-white/90 text-[10px] tracking-[0.25em] uppercase font-sans font-medium">
+          Committed to Excellence in Healthcare
+        </span>
       </div>
 
       {/* ─── Nav ─── */}
@@ -67,13 +56,13 @@ const LandingPage = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
-        className="flex items-center justify-between px-5 md:px-8 lg:px-12 py-4 lg:py-3 flex-shrink-0"
+        className="flex items-center justify-between px-5 md:px-8 lg:px-8 xl:px-12 py-4 lg:py-3 flex-shrink-0"
       >
         <img src={annoraLogo} alt="Annora Pharma Logo" className="h-6 lg:h-6 object-contain" />
-        <div className="hidden lg:flex items-center gap-6 xl:gap-8">
+        <div className="hidden lg:flex items-center gap-3 xl:gap-6 2xl:gap-8">
           {navLinks.map((link) => (
             <a key={link.label} href={link.href}
-              className={`text-[11px] xl:text-[12px] font-sans transition-colors ${
+              className={`text-[10px] xl:text-[11px] 2xl:text-[12px] font-sans transition-colors whitespace-nowrap ${
                 link.bold
                   ? 'text-[#1a1a1a] font-semibold hover:text-[#0e7065]'
                   : 'text-[#1a1a1a]/50 hover:text-[#1a1a1a]'
@@ -159,7 +148,7 @@ const LandingPage = () => {
         variants={stagger}
         initial="hidden"
         animate="visible"
-        className="flex-1 min-h-0 grid grid-cols-12 gap-3 lg:gap-3 px-4 lg:px-4 pb-4 lg:pb-4"
+        className="flex-1 min-h-0 grid grid-cols-12 lg:grid-rows-[1fr_auto] gap-3 lg:gap-2 xl:gap-3 px-4 lg:px-3 xl:px-4 pb-4 lg:pb-3 xl:pb-4"
       >
 
         {/* ─── Hero text block ─── */}
@@ -206,29 +195,29 @@ const LandingPage = () => {
             transition={{ duration: 16, ease: 'linear' }}
             src="https://annorapharma.com/Annora_files/images/Annora_bg.jpg"
             alt="Annora Pharma manufacturing facility"
-            className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-[4s]"
+            className="w-full h-full object-cover object-[10%_center] group-hover:scale-[1.02] transition-transform duration-[4s]"
           />
         </motion.div>
 
         {/* ─── Bottom info blocks ─── */}
-        <motion.div variants={fadeUp} className="col-span-6 lg:col-span-3 bg-[#0e7065] p-5 md:p-6 xl:p-6 flex flex-col justify-between overflow-hidden">
+        <motion.div variants={fadeUp} className="col-span-6 lg:col-span-3 bg-[#0e7065] p-4 md:p-6 lg:p-4 xl:p-6 flex flex-col justify-between overflow-hidden">
           <span className="text-white/60 text-[10px] xl:text-[10px] tracking-[0.2em] uppercase font-sans font-bold">Sourcing</span>
-          <span className="font-display text-white text-[1.2rem] md:text-[1.4rem] xl:text-[1.5rem] leading-[1.15] mt-5 xl:mt-8">USFDA / EU<br />Approved</span>
+          <span className="font-display text-white text-[1.1rem] md:text-[1.4rem] lg:text-[1.1rem] xl:text-[1.3rem] 2xl:text-[1.5rem] leading-[1.15] mt-4 lg:mt-3 xl:mt-8">USFDA / EU<br />Approved</span>
         </motion.div>
 
-        <motion.div variants={fadeUp} className="col-span-6 lg:col-span-3 bg-[#FAFAF8] p-5 md:p-6 xl:p-6 flex flex-col justify-between border border-[#1a1a1a]/5 overflow-hidden">
+        <motion.div variants={fadeUp} className="col-span-6 lg:col-span-3 bg-[#FAFAF8] p-4 md:p-6 lg:p-4 xl:p-6 flex flex-col justify-between border border-[#1a1a1a]/5 overflow-hidden">
           <span className="text-[#1a1a1a]/40 text-[10px] xl:text-[10px] tracking-[0.2em] uppercase font-sans font-bold">Network</span>
-          <span className="font-display text-[#0e7065] text-[1.2rem] md:text-[1.4rem] xl:text-[1.5rem] leading-[1.15] mt-5 xl:mt-8">Global<br />Partnerships</span>
+          <span className="font-display text-[#0e7065] text-[1.1rem] md:text-[1.4rem] lg:text-[1.1rem] xl:text-[1.3rem] 2xl:text-[1.5rem] leading-[1.15] mt-4 lg:mt-3 xl:mt-8">Global<br />Partnerships</span>
         </motion.div>
 
-        <motion.div variants={fadeUp} className="col-span-6 lg:col-span-3 bg-[#FAFAF8] p-5 md:p-6 xl:p-6 flex flex-col justify-between border border-[#1a1a1a]/5 overflow-hidden">
+        <motion.div variants={fadeUp} className="col-span-6 lg:col-span-3 bg-[#FAFAF8] p-4 md:p-6 lg:p-4 xl:p-6 flex flex-col justify-between border border-[#1a1a1a]/5 overflow-hidden">
           <span className="text-[#1a1a1a]/40 text-[10px] xl:text-[10px] tracking-[0.2em] uppercase font-sans font-bold">Distribution</span>
-          <span className="font-display text-[#1a1a1a] text-[1.2rem] md:text-[1.4rem] xl:text-[1.5rem] leading-[1.15] mt-5 xl:mt-8">Fast & Smooth<br />Supply</span>
+          <span className="font-display text-[#1a1a1a] text-[1.1rem] md:text-[1.4rem] lg:text-[1.1rem] xl:text-[1.3rem] 2xl:text-[1.5rem] leading-[1.15] mt-4 lg:mt-3 xl:mt-8">Fast & Smooth<br />Supply</span>
         </motion.div>
 
-        <motion.div variants={fadeUp} className="col-span-6 lg:col-span-3 bg-[#FDF4F2] p-5 md:p-6 xl:p-6 flex flex-col justify-between border border-[#e69882]/10 overflow-hidden">
+        <motion.div variants={fadeUp} className="col-span-6 lg:col-span-3 bg-[#FDF4F2] p-4 md:p-6 lg:p-4 xl:p-6 flex flex-col justify-between border border-[#e69882]/10 overflow-hidden">
           <span className="text-[#d26245]/60 text-[10px] xl:text-[10px] tracking-[0.2em] uppercase font-sans font-bold">Commitment</span>
-          <span className="font-display text-[#d26245] text-[1.2rem] md:text-[1.4rem] xl:text-[1.5rem] leading-[1.15] mt-5 xl:mt-8">Affordable<br />Medication</span>
+          <span className="font-display text-[#d26245] text-[1.1rem] md:text-[1.4rem] lg:text-[1.1rem] xl:text-[1.3rem] 2xl:text-[1.5rem] leading-[1.15] mt-4 lg:mt-3 xl:mt-8">Affordable<br />Medication</span>
         </motion.div>
 
       </motion.main>
