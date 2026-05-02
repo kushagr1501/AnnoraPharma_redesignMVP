@@ -92,7 +92,7 @@ const Home = () => {
               </h1>
             </motion.div>
 
-            <motion.div
+            {/* <motion.div
               initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.9, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
@@ -104,7 +104,7 @@ const Home = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </a>
-            </motion.div>
+            </motion.div> */}
           </div>
         </motion.div>
 
