@@ -46,30 +46,10 @@ const Home = () => {
 
   return (
     <>
-      {/* ─── Preloader ─── */}
-      <AnimatePresence>
-        {!isLoaded && (
-          <motion.div
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed inset-0 z-[100] bg-[#0a0a0a] flex items-center justify-center"
-          >
-            <motion.img
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
-              src={annoraLogo}
-              alt="Loading"
-              className="h-8 lg:h-10 object-contain brightness-0 invert opacity-50 animate-pulse"
-            />
-          </motion.div>
-        )}
-      </AnimatePresence>
-
       {/* ─── Main: Hero Section ─── */}
       <motion.section
         initial="hidden"
-        animate={isLoaded ? "visible" : "hidden"}
+        animate="visible"
         className="relative w-full h-[100dvh] flex flex-col justify-between overflow-hidden bg-[#0a0a0a]"
       >
         {/* Full-screen background image — dimmed for mood with parallax */}
