@@ -1,10 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import annoraLogo from '../assets/Annora_Logo-removebg-preview.png';
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-[#0e7065] text-white pt-24 pb-8 px-6 lg:px-12 mt-12 relative overflow-hidden flex flex-col">
+    <footer className="w-full bg-[#0e7065] text-white pt-24 pb-8 px-6 lg:px-12 relative overflow-hidden flex flex-col">
       {/* Decorative large glow for depth */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[150%] max-w-[1200px] h-[600px] bg-[#1a8578] rounded-[100%] blur-[120px] opacity-30 pointer-events-none" />
 
@@ -23,32 +24,37 @@ const Footer = () => {
             >
               Let's shape the<br />future of healthcare.
             </motion.h3>
-            <motion.button
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.1 }}
-              className="group relative px-10 py-5 bg-white text-[#0e7065] rounded-full overflow-hidden font-accent font-bold tracking-[0.15em] uppercase text-xs"
             >
-              <span className="relative z-10 transition-colors duration-500 group-hover:text-white">Get in touch</span>
-              <div className="absolute inset-0 bg-[#d26245] scale-y-0 origin-bottom transition-transform duration-500 ease-[cubic-bezier(0.8,0,0.2,1)] group-hover:scale-y-100" />
-            </motion.button>
+              <Link
+                to="/contact"
+                className="group relative inline-flex px-10 py-5 bg-white text-[#0e7065] rounded-full overflow-hidden font-accent font-bold tracking-[0.15em] uppercase text-xs"
+              >
+                <span className="relative z-10 transition-colors duration-500 group-hover:text-white">Get in touch</span>
+                <div className="absolute inset-0 bg-[#d26245] scale-y-0 origin-bottom transition-transform duration-500 ease-[cubic-bezier(0.8,0,0.2,1)] group-hover:scale-y-100" />
+              </Link>
+            </motion.div>
           </div>
 
-          <div className="lg:col-span-2 lg:col-start-9 flex flex-col gap-5">
+          <div className="lg:col-span-3 lg:col-start-8 flex flex-col gap-5">
             <h4 className="text-white/50 text-[10px] tracking-[0.25em] uppercase font-accent font-bold mb-2">Company</h4>
-            <a href="#" className="font-sans text-lg lg:text-xl text-white/80 hover:text-white transition-colors relative overflow-hidden group w-fit">
-              <span className="block transition-transform duration-500 group-hover:-translate-y-[120%]">About Us</span>
-              <span className="absolute inset-0 translate-y-[120%] transition-transform duration-500 group-hover:translate-y-0">About Us</span>
-            </a>
-            <a href="#" className="font-sans text-lg lg:text-xl text-white/80 hover:text-white transition-colors relative overflow-hidden group w-fit">
-              <span className="block transition-transform duration-500 group-hover:-translate-y-[120%]">Our Values</span>
-              <span className="absolute inset-0 translate-y-[120%] transition-transform duration-500 group-hover:translate-y-0">Our Values</span>
-            </a>
-            <a href="#" className="font-sans text-lg lg:text-xl text-white/80 hover:text-white transition-colors relative overflow-hidden group w-fit">
-              <span className="block transition-transform duration-500 group-hover:-translate-y-[120%]">Careers</span>
-              <span className="absolute inset-0 translate-y-[120%] transition-transform duration-500 group-hover:translate-y-0">Careers</span>
-            </a>
+            {[
+              { name: 'About Us', path: '/about' },
+              { name: 'Products', path: '/products' },
+              { name: 'Careers', path: '/careers' },
+              { name: 'News & Events', path: '/news' },
+              { name: 'Pharmacovigilance', path: '/pharmacovigilance' },
+              { name: 'Contact', path: '/contact' }
+            ].map((link) => (
+              <Link key={link.name} to={link.path} className="font-sans text-lg lg:text-xl text-white/80 hover:text-white transition-colors relative overflow-hidden group w-fit">
+                <span className="block transition-transform duration-500 group-hover:-translate-y-[120%]">{link.name}</span>
+                <span className="absolute inset-0 translate-y-[120%] transition-transform duration-500 group-hover:translate-y-0">{link.name}</span>
+              </Link>
+            ))}
           </div>
 
           <div className="lg:col-span-2 flex flex-col gap-5">
