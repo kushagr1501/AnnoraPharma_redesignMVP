@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useMotionValue, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import annoraLogo from '../assets/Annora_Logo-removebg-preview.png';
@@ -39,6 +39,17 @@ const fadeUp = {
 const Home = () => {
   const [isLoaded, setIsLoaded] = useState(false);
 
+  /* Preload hero image immediately on mount */
+  useEffect(() => {
+    const img = new Image();
+    img.src = heroBg;
+    if (img.complete) {
+      setIsLoaded(true);
+    } else {
+      img.onload = () => setIsLoaded(true);
+    }
+  }, []);
+
   const { scrollY } = useScroll();
   const yBg = useTransform(scrollY, [0, 1000], [0, 300]);
   const yContent = useTransform(scrollY, [0, 1000], [0, 150]);
@@ -49,7 +60,7 @@ const Home = () => {
       {/* ─── Main: Hero Section ─── */}
       <motion.section
         initial="hidden"
-        animate="visible"
+        animate={isLoaded ? "visible" : "hidden"}
         className="relative w-full h-[100dvh] flex flex-col justify-between overflow-hidden bg-[#0a0a0a]"
       >
         {/* Full-screen background image — dimmed for mood with parallax */}
@@ -61,6 +72,8 @@ const Home = () => {
             src={heroBg}
             onLoad={() => setIsLoaded(true)}
             alt="Annora Pharma manufacturing facility"
+            fetchPriority="high"
+            loading="eager"
             className="w-full h-full object-cover object-[0%_20%]"
           />
         </motion.div>
