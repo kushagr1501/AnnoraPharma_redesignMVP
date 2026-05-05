@@ -92,19 +92,7 @@ const Home = () => {
               </h1>
             </motion.div>
 
-            {/* <motion.div
-              initial={{ y: 30, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.9, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              className="mt-10"
-            >
-              <a href="#" className="group inline-flex items-center gap-3 border border-white/40 bg-white/10 backdrop-blur-md text-white px-8 py-4 text-[13px] font-sans font-bold tracking-widest uppercase hover:bg-white hover:text-[#0e7065] transition-all duration-300">
-                Read More
-                <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </a>
-            </motion.div> */}
+            {/* ss */}
           </div>
         </motion.div>
 

@@ -3,8 +3,6 @@ import { motion } from 'framer-motion';
 import PageBanner from '../components/PageBanner';
 
 import imgB2 from '../assets/B2.PNG';
-import imgB5 from '../assets/B5.PNG';
-import imgB6 from '../assets/B6.PNG';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -27,7 +25,7 @@ export default function AboutUs() {
             </h2>
             <div className="w-16 h-[2px] bg-[#e69882] mx-auto mb-8" />
             <p className="text-[#1a1a1a]/70 text-xl lg:text-[1.4rem] font-sans leading-relaxed">
-              Annora Pharma FZ-LLC is an ISO-certified pharmaceutical company committed to providing high-quality, affordable branded generic medications. With our state-of-the-art facility in the UAE, we are dedicated to improving healthcare outcomes across the region and beyond.
+              <span className="font-bold text-[#0e7065]">Annora Pharma-FZ LLC</span> is a UAE based pharmaceutical company engaged in marketing and supply of best-in-class branded generic medicine, to serve the unmet needs of the country.
             </p>
           </motion.div>
 
@@ -40,10 +38,10 @@ export default function AboutUs() {
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="flex flex-col gap-6">
               <h3 className="font-display text-[#1a1a1a] text-3xl md:text-4xl">Our Story</h3>
               <p className="text-[#1a1a1a]/70 text-lg font-sans leading-relaxed">
-                Founded with a vision to make quality healthcare accessible, Annora Pharma has grown into a trusted name in the pharmaceutical industry. We develop and distribute branded generic medications that meet international quality standards.
+                We are committed to transform lives by providing easy access to high quality and affordable medication to patients and healthcare partners. To ensure delivery of the best-in-class quality products to our customers, we source products from USFDA/European approved manufacturing facilities from our partners across the globe.
               </p>
               <p className="text-[#1a1a1a]/70 text-lg font-sans leading-relaxed">
-                Our commitment goes beyond manufacturing. We invest in research, development, and partnerships that enable us to bring life-changing treatments to patients who need them most.
+                Backed by strong global partners having state-of-the-art manufacturing facilities and highly qualified research team. We have a well-entrenched supply and distribution network to ensure faster and smooth supply of the medicines.
               </p>
               <div className="flex gap-8 mt-4">
                 <div className="flex flex-col">
@@ -60,36 +58,6 @@ export default function AboutUs() {
                 </div>
               </div>
             </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Leadership */}
-      <section className="w-full py-20 lg:py-28 px-6 md:px-12 lg:px-24 xl:px-32 bg-white relative overflow-hidden">
-        <div className="max-w-[1400px] mx-auto relative z-10">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="font-display text-[#0e7065] text-5xl md:text-6xl leading-none tracking-wide mb-6">Leadership</h2>
-            <div className="w-16 h-[2px] bg-[#e69882] mx-auto mb-8" />
-            <p className="text-[#1a1a1a]/70 text-xl font-sans leading-relaxed">
-              Our leadership team brings decades of combined experience in pharmaceuticals, healthcare management, and global business strategy.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              { name: "Dr. Ahmed Al Mansoori", role: "Chief Executive Officer", img: imgB5 },
-              { name: "Sarah Hassan", role: "Chief Operating Officer", img: imgB6 },
-              { name: "Rajesh Kumar", role: "Head of R&D", img: imgB2 },
-            ].map((leader, idx) => (
-              <motion.div key={idx} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="group">
-                <div className="h-[350px] rounded-[24px] overflow-hidden mb-6 relative">
-                  <img src={leader.img} alt={leader.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                  <div className="absolute inset-0 bg-[#0e7065]/20 group-hover:bg-transparent transition-colors duration-500" />
-                </div>
-                <h3 className="font-display text-[#1a1a1a] text-2xl mb-1">{leader.name}</h3>
-                <p className="font-sans text-[#0e7065] text-sm tracking-wide">{leader.role}</p>
-              </motion.div>
-            ))}
           </div>
         </div>
       </section>

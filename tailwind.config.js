@@ -18,10 +18,10 @@ export default {
         }
       },
       fontFamily: {
-        sans: ['"DM Sans"', 'sans-serif'],
-        display: ['"DM Serif Display"', 'serif'],
-        heading: ['"Plus Jakarta Sans"', 'sans-serif'],
-        accent: ['"Sora"', 'sans-serif'],
+        sans: ['"Montserrat"', 'sans-serif'],
+        display: ['"Montserrat"', 'sans-serif'],
+        heading: ['"Montserrat"', 'sans-serif'],
+        accent: ['"Montserrat"', 'sans-serif'],
       },
       animation: {
         'gradient-x': 'gradient-x 3s ease infinite',
