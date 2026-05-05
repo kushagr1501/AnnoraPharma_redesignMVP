@@ -87,7 +87,7 @@ const Home = () => {
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
             >
-              <h1 className="font-heading font-bold text-white text-[3rem] md:text-[4.5rem] lg:text-[5.5rem] leading-[1.05] tracking-[-0.02em] drop-shadow-lg">
+              <h1 className="font-heading font-semibold text-white text-[3rem] md:text-[4.5rem] lg:text-[5.5rem] leading-[1.05] tracking-[-0.02em] drop-shadow-lg">
                 Committed to excellence<br />in healthcare.
               </h1>
             </motion.div>
