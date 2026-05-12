@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useMotionValue, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import annoraLogo from '../assets/Annora_Logo-removebg-preview.png';
-import heroBg from '../assets/Annora_bg2.png';
+import heroBg from '../assets/B2.PNG';
 import imgB1 from '../assets/B1.PNG';
 import imgB2 from '../assets/B2.PNG';
 import imgB3 from '../assets/B3.PNG';
