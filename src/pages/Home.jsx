@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useMotionValue, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import annoraLogo from '../assets/Annora_Logo-removebg-preview.png';
-import heroBg from '../assets/Annora_bg.png';
+import heroBg from '../assets/Annora_bg2.png';
 import imgB1 from '../assets/B1.PNG';
 import imgB2 from '../assets/B2.PNG';
 import imgB3 from '../assets/B3.PNG';
@@ -101,7 +101,7 @@ const Home = () => {
               transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
             >
               <h1 className="font-heading font-semibold text-white text-[3rem] md:text-[4.5rem] lg:text-[5.5rem] leading-[1.05] tracking-[-0.02em] drop-shadow-lg">
-                Committed to excellence<br />in healthcare.
+                THE PROMISE OF A<br />HEALTHIER WORLD
               </h1>
             </motion.div>
 
