@@ -48,14 +48,14 @@ export default function Products() {
       {/* ─── Product Categories Section ─── */}
       <section className="w-full bg-[#FAFAF8] py-20 lg:py-32 px-6 md:px-12 lg:px-24 xl:px-32 relative overflow-hidden">
         {/* Subtle background decoration */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#0e7065]/5 rounded-full blur-[120px] pointer-events-none" />
+
 
         <div className="max-w-[1400px] mx-auto relative z-10">
           <motion.div
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeUp}
             className="mb-12 md:mb-16 text-center max-w-4xl mx-auto flex flex-col items-center"
           >
-            <h2 className="font-display text-[#0e7065] text-5xl md:text-6xl lg:text-[4.5rem] leading-none tracking-wide mb-6">
+            <h2 className="font-display text-[#1a1a1a] text-5xl md:text-6xl lg:text-[4.5rem] leading-none tracking-wide mb-6">
               Therapeutic Segments
             </h2>
             <div className="w-16 h-[2px] bg-[#e69882] mx-auto mb-8" />
@@ -67,14 +67,14 @@ export default function Products() {
             <div className="flex gap-4 mt-8">
               <button 
                 onClick={() => scroll('left')} 
-                className="p-3 rounded-full border border-[#0e7065]/20 text-[#0e7065] bg-white hover:bg-[#0e7065] hover:text-white transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5"
+                className="p-3 rounded-full border border-[#1a1a1a]/20 text-[#1a1a1a] bg-white hover:bg-[#1a1a1a] hover:text-white transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5"
                 aria-label="Scroll left"
               >
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
               </button>
               <button 
                 onClick={() => scroll('right')} 
-                className="p-3 rounded-full border border-[#0e7065]/20 text-[#0e7065] bg-white hover:bg-[#0e7065] hover:text-white transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5"
+                className="p-3 rounded-full border border-[#1a1a1a]/20 text-[#1a1a1a] bg-white hover:bg-[#1a1a1a] hover:text-white transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5"
                 aria-label="Scroll right"
               >
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6"/></svg>
@@ -101,13 +101,13 @@ export default function Products() {
                   }}
                   className="flex-none w-[280px] md:w-[320px] snap-center group cursor-pointer"
                 >
-                  <div className="bg-white border border-[#1a1a1a]/5 rounded-[24px] overflow-hidden shadow-sm hover:shadow-[0_20px_40px_-15px_rgba(14,112,101,0.2)] transition-all duration-500 h-[380px] flex flex-col relative">
+                  <div className="bg-white border border-[#1a1a1a]/5 rounded-[24px] overflow-hidden shadow-sm hover:shadow-lg transition-all duration-500 h-[380px] flex flex-col relative">
                     <div className="h-[240px] w-full bg-gradient-to-br from-gray-100 to-gray-200 relative overflow-hidden">
                       <img src={product.img} alt={product.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                      <div className="absolute inset-0 bg-[#0e7065]/20 group-hover:bg-transparent transition-colors duration-500 mix-blend-multiply" />
+                      <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500 mix-blend-multiply" />
                     </div>
                     <div className="p-6 flex-1 flex flex-col justify-center bg-white relative z-10 transition-transform duration-500 group-hover:-translate-y-2">
-                      <h3 className="font-display text-2xl text-[#1a1a1a] group-hover:text-[#0e7065] transition-colors duration-300">
+                      <h3 className="font-display text-2xl text-[#1a1a1a] group-hover:text-[#1a1a1a]/70 transition-colors duration-300">
                         {product.name}
                       </h3>
                       <div className="w-8 h-[2px] bg-[#e69882] mt-4 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0" />

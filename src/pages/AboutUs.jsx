@@ -16,16 +16,16 @@ export default function AboutUs() {
 
       {/* Who We Are */}
       <section className="w-full py-20 lg:py-32 px-6 md:px-12 lg:px-24 xl:px-32 relative overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#0e7065]/5 rounded-full blur-[120px] pointer-events-none" />
+
 
         <div className="max-w-[1400px] mx-auto relative z-10">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeUp} className="mb-16 md:mb-20 text-center max-w-4xl mx-auto">
-            <h2 className="font-display text-[#0e7065] text-5xl md:text-6xl lg:text-[4.5rem] leading-none tracking-wide mb-6">
+            <h2 className="font-display text-[#1a1a1a] text-5xl md:text-6xl lg:text-[4.5rem] leading-none tracking-wide mb-6">
               Who We Are
             </h2>
             <div className="w-16 h-[2px] bg-[#e69882] mx-auto mb-8" />
             <p className="text-[#1a1a1a]/70 text-xl lg:text-[1.4rem] font-sans leading-relaxed">
-              <span className="font-bold text-[#0e7065]">Annora Pharma-FZ LLC</span> is a UAE based pharmaceutical company engaged in marketing and supply of best-in-class branded generic medicine, to serve the unmet needs of the country.
+              <span className="font-bold text-[#1a1a1a]">Annora Pharma-FZ LLC</span> is a UAE based pharmaceutical company engaged in marketing and supply of best-in-class branded generic medicine, to serve the unmet needs of the country.
             </p>
           </motion.div>
 
@@ -45,15 +45,15 @@ export default function AboutUs() {
               </p>
               <div className="flex gap-8 mt-4">
                 <div className="flex flex-col">
-                  <span className="font-display text-[#0e7065] text-4xl">100+</span>
+                  <span className="font-display text-[#1a1a1a] text-4xl">100+</span>
                   <span className="font-sans text-[#1a1a1a]/50 text-sm mt-1">Products</span>
                 </div>
                 <div className="flex flex-col">
-                  <span className="font-display text-[#0e7065] text-4xl">15+</span>
+                  <span className="font-display text-[#1a1a1a] text-4xl">15+</span>
                   <span className="font-sans text-[#1a1a1a]/50 text-sm mt-1">Countries</span>
                 </div>
                 <div className="flex flex-col">
-                  <span className="font-display text-[#0e7065] text-4xl">500+</span>
+                  <span className="font-display text-[#1a1a1a] text-4xl">500+</span>
                   <span className="font-sans text-[#1a1a1a]/50 text-sm mt-1">Team Members</span>
                 </div>
               </div>

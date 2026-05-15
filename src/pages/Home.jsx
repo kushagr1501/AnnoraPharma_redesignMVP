@@ -81,10 +81,10 @@ const Home = () => {
         <div className="absolute inset-0 bg-black/20" />
 
         {/* Clean, smooth teal gradient that fades naturally */}
-        <div className="absolute inset-y-0 left-0 w-full md:w-[80%] lg:w-[70%] bg-gradient-to-r from-[#0e7065] via-[#0e7065]/80 to-transparent pointer-events-none" />
+        <div className="absolute inset-y-0 left-0 w-full md:w-[80%] lg:w-[70%] bg-gradient-to-r from-[#0e7065]/70 via-[#0e7065]/40 to-transparent pointer-events-none" />
 
         {/* Soft color blend to make the image feel integrated */}
-        <div className="absolute inset-y-0 left-0 w-full md:w-[60%] bg-gradient-to-r from-[#0e7065] to-transparent mix-blend-multiply opacity-50 pointer-events-none" />
+        <div className="absolute inset-y-0 left-0 w-full md:w-[60%] bg-gradient-to-r from-[#0e7065] to-transparent mix-blend-multiply opacity-30 pointer-events-none" />
 
         {/* Spacer for nav */}
         <div className="pt-28" />
@@ -190,7 +190,7 @@ const Home = () => {
           </motion.div>
 
           {/* Vision Text */}
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeUp} className="col-span-12 lg:col-span-8 bg-gradient-to-br from-[#0e7065] via-[#116259] to-[#073631] p-8 md:p-12 lg:p-16 flex flex-col justify-center relative overflow-hidden group">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeUp} className="col-span-12 lg:col-span-8 bg-gradient-to-br from-[#0e7065]/90 to-[#0e7065]/70 p-8 md:p-12 lg:p-16 flex flex-col justify-center relative overflow-hidden group">
             <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 transition-transform duration-1000 group-hover:scale-110" />
             <h2 className="font-display text-transparent bg-clip-text bg-gradient-to-r from-white to-white/70 text-3xl md:text-5xl mb-6 relative z-10">Our Vision</h2>
             <p className="text-white/80 text-lg md:text-xl xl:text-2xl leading-relaxed font-sans max-w-3xl relative z-10">
@@ -220,7 +220,7 @@ const Home = () => {
           {/* Values Cinematic Cards */}
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={fadeUp} className="col-span-12 md:col-span-6 lg:col-span-3 h-[350px] lg:h-[480px] relative overflow-hidden group">
             <img src={imgB1} className="absolute inset-0 w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-105" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0e7065]/95 via-[#0e7065]/40 to-transparent transition-opacity duration-500 opacity-90 group-hover:opacity-100" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0e7065]/80 via-[#0e7065]/30 to-transparent transition-opacity duration-500 opacity-90 group-hover:opacity-100" />
             <div className="absolute inset-0 p-6 lg:p-8 flex flex-col justify-end transition-transform duration-500 group-hover:-translate-y-2">
               <div className="flex flex-col justify-start h-[180px] lg:h-[220px]">
                 <span className="text-white/60 text-[10px] tracking-[0.2em] uppercase font-accent font-bold mb-2">01</span>
@@ -248,7 +248,7 @@ const Home = () => {
 
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={fadeUp} className="col-span-12 md:col-span-6 lg:col-span-3 h-[350px] lg:h-[480px] relative overflow-hidden group">
             <img src={imgB3} className="absolute inset-0 w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-105" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0e7065]/95 via-[#0e7065]/40 to-transparent transition-opacity duration-500 opacity-90 group-hover:opacity-100" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0e7065]/80 via-[#0e7065]/30 to-transparent transition-opacity duration-500 opacity-90 group-hover:opacity-100" />
             <div className="absolute inset-0 p-6 lg:p-8 flex flex-col justify-end transition-transform duration-500 group-hover:-translate-y-2">
               <div className="flex flex-col justify-start h-[180px] lg:h-[220px]">
                 <span className="text-white/60 text-[10px] tracking-[0.2em] uppercase font-accent font-bold mb-2">03</span>
@@ -262,7 +262,7 @@ const Home = () => {
 
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={fadeUp} className="col-span-12 md:col-span-6 lg:col-span-3 h-[350px] lg:h-[480px] relative overflow-hidden group">
             <img src={imgB7} className="absolute inset-0 w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-105" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0e7065]/95 via-[#0e7065]/40 to-transparent transition-opacity duration-500 opacity-90 group-hover:opacity-100" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0e7065]/80 via-[#0e7065]/30 to-transparent transition-opacity duration-500 opacity-90 group-hover:opacity-100" />
             <div className="absolute inset-0 p-6 lg:p-8 flex flex-col justify-end transition-transform duration-500 group-hover:-translate-y-2">
               <div className="flex flex-col justify-start h-[180px] lg:h-[220px]">
                 <span className="text-white/60 text-[10px] tracking-[0.2em] uppercase font-accent font-bold mb-2">04</span>
@@ -277,24 +277,21 @@ const Home = () => {
         </div>
       </section>
       {/* Flagship Products Section (Split Layout) */}
-      <section className="w-full relative bg-white mt-12 lg:mt-16">
+      <section className="w-full relative bg-white mt-12 lg:mt-16 mb-16 lg:mb-24">
         <div className="flex flex-col lg:flex-row w-full min-h-[700px]">
 
-          {/* Left: Green Area */}
-          <div className="w-full lg:w-[45%] bg-gradient-to-br from-[#0e7065] via-[#116259] to-[#073631] p-8 md:p-12 lg:p-16 xl:p-24 flex flex-col justify-center relative overflow-hidden">
-            {/* Subtle glow */}
-            <div className="absolute top-0 left-0 w-full h-full bg-black/10 mix-blend-overlay" />
-
+          {/* Left: Content Area */}
+          <div className="w-full lg:w-[45%] bg-[#FAFAF8] p-8 md:p-12 lg:p-16 xl:p-24 flex flex-col justify-center relative overflow-hidden">
             <div className="relative z-10 text-center lg:text-left mb-12 lg:mb-16">
-              <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="font-display text-white text-3xl md:text-4xl lg:text-5xl mb-4">
+              <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="font-display text-[#1a1a1a] text-3xl md:text-4xl lg:text-5xl mb-4">
                 Flagship Products
               </motion.h2>
-              <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="w-12 h-[2px] bg-white/50 mx-auto lg:mx-0 mb-6" />
-              <motion.p initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-white/80 font-sans text-base md:text-lg leading-relaxed max-w-md mx-auto lg:mx-0 mb-8">
+              <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="w-12 h-[2px] bg-[#0e7065]/50 mx-auto lg:mx-0 mb-6" />
+              <motion.p initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-[#1a1a1a]/80 font-sans text-base md:text-lg leading-relaxed max-w-md mx-auto lg:mx-0 mb-8">
                 Our portfolio features proven, high-impact treatments across critical therapeutic segments.
               </motion.p>
               <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
-                <Link to="/products" className="inline-flex items-center justify-center px-8 py-3.5 bg-white text-[#0e7065] font-sans font-bold text-[13px] uppercase tracking-widest rounded-full hover:bg-[#FAFAF8] hover:-translate-y-1 transition-all shadow-xl hover:shadow-2xl">
+                <Link to="/products" className="inline-flex items-center justify-center px-8 py-3.5 bg-[#0e7065] text-white font-sans font-bold text-[13px] uppercase tracking-widest rounded-full hover:bg-[#116259] hover:-translate-y-1 transition-all shadow-xl hover:shadow-2xl">
                   Explore Products
                 </Link>
               </motion.div>
@@ -328,8 +325,6 @@ const Home = () => {
           {/* Right: Image Area */}
           <div className="w-full lg:w-[55%] h-[400px] lg:h-auto relative overflow-hidden">
             <img src={imgB5} alt="Doctor and Patient" className="absolute inset-0 w-full h-full object-cover object-center" />
-            {/* Dark gradient fade from the left on desktop */}
-            <div className="hidden lg:block absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#0e7065] to-transparent mix-blend-multiply opacity-60" />
           </div>
 
         </div>
