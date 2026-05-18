@@ -10,8 +10,8 @@ import imgB4 from '../assets/B4.PNG';
 import imgB5 from '../assets/B5.PNG';
 import imgB6 from '../assets/B6.PNG';
 import imgB7 from '../assets/B7.PNG';
+import { Eye, Target, BookOpen, ShieldCheck, Zap, HeartHandshake } from 'lucide-react';
 
-/* ─── Magnetic element ─── */
 function Magnetic({ children, className, as: Tag = 'div' }) {
   const ref = useRef(null);
   const x = useMotionValue(0);
@@ -77,19 +77,11 @@ const Home = () => {
             className="w-full h-full object-cover object-[0%_20%]"
           />
         </motion.div>
-        {/* Base dark tint to give text contrast against bright images */}
         <div className="absolute inset-0 bg-black/20" />
-
-        {/* Clean, smooth teal gradient that fades naturally */}
-        <div className="absolute inset-y-0 left-0 w-full md:w-[80%] lg:w-[70%] bg-gradient-to-r from-[#0e7065]/70 via-[#0e7065]/40 to-transparent pointer-events-none" />
-
-        {/* Soft color blend to make the image feel integrated */}
-        <div className="absolute inset-y-0 left-0 w-full md:w-[60%] bg-gradient-to-r from-[#0e7065] to-transparent mix-blend-multiply opacity-30 pointer-events-none" />
-
-        {/* Spacer for nav */}
+        <div className="absolute inset-y-0 left-0 w-full md:w-[80%] lg:w-[70%] bg-gradient-to-r from-[#0e7065] via-[#0e7065]/80 to-transparent pointer-events-none" />
+        <div className="absolute inset-y-0 left-0 w-full md:w-[60%] bg-gradient-to-r from-[#0e7065] to-transparent mix-blend-multiply opacity-50 pointer-events-none" />
         <div className="pt-28" />
 
-        {/* Left: Hero headline */}
         <motion.div
           style={{ y: yContent, opacity: opacityContent }}
           className="relative z-10 flex-1 flex items-center justify-start px-6 md:px-12 lg:px-24 xl:px-32"
@@ -180,119 +172,98 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ─── Vision, Mission & Values Bento ─── */}
-      <section className="w-full px-0 pb-0 pt-12 bg-white">
-        <div className="grid grid-cols-12 gap-3 lg:gap-2 xl:gap-3">
+      {/* ─── What Drives Us (Vision, Mission, Values) ─── */}
+      <section className="relative w-full py-20 lg:py-32 overflow-hidden">
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0 w-full h-full">
+          <img src={imgB6} alt="What drives us" className="w-full h-full object-cover object-[center_30%]" />
+          <div className="absolute inset-0 bg-[#073631]/80 mix-blend-multiply" />
+          <div className="absolute inset-0 bg-[#0e7065]/50" />
+        </div>
 
-          {/* Vision Image */}
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeUp} className="col-span-12 lg:col-span-4 h-[300px] md:h-[400px] overflow-hidden">
-            <img src={imgB2} alt="Vision" className="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-[2s]" />
+        <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24 xl:px-32">
+          
+          {/* Heading aligned to right */}
+          <motion.div 
+            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={fadeUp}
+            className="flex justify-start lg:justify-end mb-12 lg:mb-16"
+          >
+            <h2 className="font-display text-white text-4xl md:text-5xl lg:text-[3.5rem] font-light tracking-wide">
+              What drives <span className="text-[#d26245] font-bold">us</span>
+            </h2>
           </motion.div>
 
-          {/* Vision Text */}
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeUp} className="col-span-12 lg:col-span-8 bg-gradient-to-br from-[#0e7065]/90 to-[#0e7065]/70 p-8 md:p-12 lg:p-16 flex flex-col justify-center relative overflow-hidden group">
-            <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 transition-transform duration-1000 group-hover:scale-110" />
-            <h2 className="font-display text-transparent bg-clip-text bg-gradient-to-r from-white to-white/70 text-3xl md:text-5xl mb-6 relative z-10">Our Vision</h2>
-            <p className="text-white/80 text-lg md:text-xl xl:text-2xl leading-relaxed font-sans max-w-3xl relative z-10">
-              To be the leading generic pharmaceutical company in the region and meet the healthcare needs.
-            </p>
-          </motion.div>
-
-          {/* Mission Text */}
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeUp} className="col-span-12 lg:col-span-8 bg-gradient-to-br from-white to-[#f8f9fa] p-8 md:p-12 lg:p-16 flex flex-col justify-center border border-[#1a1a1a]/5 relative overflow-hidden group">
-            <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#0e7065]/5 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4 transition-transform duration-1000 group-hover:scale-110" />
-            <h2 className="font-display text-transparent bg-clip-text bg-gradient-to-r from-[#0e7065] to-[#258f84] text-3xl md:text-5xl mb-6 relative z-10">Our Mission</h2>
-            <p className="text-[#1a1a1a]/70 text-lg md:text-xl xl:text-2xl leading-relaxed font-sans max-w-3xl relative z-10">
-              To provide access to high quality and affordable branded generic medication to the people for a healthier future.
-            </p>
-          </motion.div>
-
-          {/* Mission Image */}
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeUp} className="col-span-12 lg:col-span-4 h-[300px] md:h-[400px] overflow-hidden">
-            <img src={imgB6} alt="Mission" className="w-full h-full object-cover object-top hover:scale-[1.03] transition-transform duration-[2s]" />
-          </motion.div>
-
-          {/* Values Header */}
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeUp} className="col-span-12 mt-10 mb-2">
-            <h2 className="font-display text-transparent bg-clip-text bg-gradient-to-r from-[#0e7065] to-[#258f84] text-4xl md:text-5xl lg:text-6xl text-center">Our Values</h2>
-          </motion.div>
-
-          {/* Values Cinematic Cards */}
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={fadeUp} className="col-span-12 md:col-span-6 lg:col-span-3 h-[350px] lg:h-[480px] relative overflow-hidden group">
-            <img src={imgB1} className="absolute inset-0 w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-105" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0e7065]/80 via-[#0e7065]/30 to-transparent transition-opacity duration-500 opacity-90 group-hover:opacity-100" />
-            <div className="absolute inset-0 p-6 lg:p-8 flex flex-col justify-end transition-transform duration-500 group-hover:-translate-y-2">
-              <div className="flex flex-col justify-start h-[180px] lg:h-[220px]">
-                <span className="text-white/60 text-[10px] tracking-[0.2em] uppercase font-accent font-bold mb-2">01</span>
-                <h3 className="font-display text-white text-2xl lg:text-3xl mb-3">Knowledge</h3>
-                <p className="text-white/90 text-[13px] leading-[1.6] font-sans">
-                  We value and respect Knowledge as the key enabler in our mission to develop affordable healthcare. We greatly cherish knowledge in our team members, associates, partners and the community at large.
+          {/* Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            
+            {[
+              {
+                icon: Eye,
+                title: "OUR VISION",
+                desc: "To be the leading generic pharmaceutical company in the region and meet the healthcare needs with excellence."
+              },
+              {
+                icon: Target,
+                title: "OUR MISSION",
+                desc: "To provide access to high quality and affordable branded generic medication to the people for a healthier future."
+              },
+              {
+                icon: BookOpen,
+                title: "KNOWLEDGE",
+                desc: "We value and respect Knowledge as the key enabler in our mission to develop affordable healthcare and cherish it in our team."
+              },
+              {
+                icon: ShieldCheck,
+                title: "QUALITY FOCUS",
+                desc: "We are committed to the highest standards of Quality in every aspect of our business, raising those standards through continuous improvement."
+              },
+              {
+                icon: Zap,
+                title: "DYNAMISM",
+                desc: "We are agile, pro-active and passionate about each and everything that we do to bring the best healthcare solutions."
+              },
+              {
+                icon: HeartHandshake,
+                title: "RESPONSIBILITY",
+                desc: "We have a deep-rooted sense of responsibility towards all our stakeholders, striving relentlessly to deliver on those responsibilities."
+              }
+            ].map((val, idx) => (
+              <motion.div 
+                key={idx}
+                initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={fadeUp}
+                className="bg-[#FAFAF8]/95 backdrop-blur-sm rounded-[24px] p-8 lg:p-10 shadow-2xl shadow-black/20 border border-white/10 hover:-translate-y-1 transition-all duration-300 group"
+              >
+                <div className="mb-8 group-hover:-translate-y-1 group-hover:scale-105 transition-transform duration-500 origin-left">
+                  <val.icon className="w-12 h-12 text-[#d26245]" strokeWidth={1.2} />
+                </div>
+                <h3 className="font-sans font-bold text-[#1a1a1a] text-lg tracking-[0.15em] mb-4 uppercase">{val.title}</h3>
+                <p className="text-[#1a1a1a]/60 text-[14px] leading-[1.8] font-sans">
+                  {val.desc}
                 </p>
-              </div>
-            </div>
-          </motion.div>
+              </motion.div>
+            ))}
 
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={fadeUp} className="col-span-12 md:col-span-6 lg:col-span-3 h-[350px] lg:h-[480px] relative overflow-hidden group">
-            <img src={imgB4} className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-[3s] group-hover:scale-105" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#d26245]/95 via-[#d26245]/40 to-transparent transition-opacity duration-500 opacity-90 group-hover:opacity-100" />
-            <div className="absolute inset-0 p-6 lg:p-8 flex flex-col justify-end transition-transform duration-500 group-hover:-translate-y-2">
-              <div className="flex flex-col justify-start h-[180px] lg:h-[220px]">
-                <span className="text-white/60 text-[10px] tracking-[0.2em] uppercase font-accent font-bold mb-2">02</span>
-                <h3 className="font-display text-white text-2xl lg:text-3xl mb-3">Quality Focus</h3>
-                <p className="text-white/90 text-[13px] leading-[1.6] font-sans">
-                  We are committed to the highest standards of Quality in every aspect of our business, and work towards raising those standards through continuous improvement.
-                </p>
-              </div>
-            </div>
-          </motion.div>
-
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={fadeUp} className="col-span-12 md:col-span-6 lg:col-span-3 h-[350px] lg:h-[480px] relative overflow-hidden group">
-            <img src={imgB3} className="absolute inset-0 w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-105" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0e7065]/80 via-[#0e7065]/30 to-transparent transition-opacity duration-500 opacity-90 group-hover:opacity-100" />
-            <div className="absolute inset-0 p-6 lg:p-8 flex flex-col justify-end transition-transform duration-500 group-hover:-translate-y-2">
-              <div className="flex flex-col justify-start h-[180px] lg:h-[220px]">
-                <span className="text-white/60 text-[10px] tracking-[0.2em] uppercase font-accent font-bold mb-2">03</span>
-                <h3 className="font-display text-white text-2xl lg:text-3xl mb-3">Dynamism</h3>
-                <p className="text-white/90 text-[13px] leading-[1.6] font-sans">
-                  We are agile, pro-active and passionate about each and everything that we do.
-                </p>
-              </div>
-            </div>
-          </motion.div>
-
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={fadeUp} className="col-span-12 md:col-span-6 lg:col-span-3 h-[350px] lg:h-[480px] relative overflow-hidden group">
-            <img src={imgB7} className="absolute inset-0 w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-105" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0e7065]/80 via-[#0e7065]/30 to-transparent transition-opacity duration-500 opacity-90 group-hover:opacity-100" />
-            <div className="absolute inset-0 p-6 lg:p-8 flex flex-col justify-end transition-transform duration-500 group-hover:-translate-y-2">
-              <div className="flex flex-col justify-start h-[180px] lg:h-[220px]">
-                <span className="text-white/60 text-[10px] tracking-[0.2em] uppercase font-accent font-bold mb-2">04</span>
-                <h3 className="font-display text-white text-2xl lg:text-3xl mb-3">Responsibility</h3>
-                <p className="text-white/90 text-[13px] leading-[1.6] font-sans">
-                  We have deep-rooted sense of responsibility towards all our stakeholders - customers, employees, shareholders and each and every associate who partners us. And we strive relentlessly towards delivering on those responsibilities.
-                </p>
-              </div>
-            </div>
-          </motion.div>
-
+          </div>
         </div>
       </section>
       {/* Flagship Products Section (Split Layout) */}
-      <section className="w-full relative bg-white mt-12 lg:mt-16 mb-16 lg:mb-24">
+      <section className="w-full relative bg-white mt-12 lg:mt-16 pb-12 lg:pb-16">
         <div className="flex flex-col lg:flex-row w-full min-h-[700px]">
 
-          {/* Left: Content Area */}
+          {/* Left: Light Area */}
           <div className="w-full lg:w-[45%] bg-[#FAFAF8] p-8 md:p-12 lg:p-16 xl:p-24 flex flex-col justify-center relative overflow-hidden">
+            
             <div className="relative z-10 text-center lg:text-left mb-12 lg:mb-16">
-              <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="font-display text-[#1a1a1a] text-3xl md:text-4xl lg:text-5xl mb-4">
+              <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="font-display text-[#1a1a1a] text-4xl md:text-5xl lg:text-[3.5rem] mb-4 font-light">
                 Flagship Products
               </motion.h2>
-              <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="w-12 h-[2px] bg-[#0e7065]/50 mx-auto lg:mx-0 mb-6" />
-              <motion.p initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-[#1a1a1a]/80 font-sans text-base md:text-lg leading-relaxed max-w-md mx-auto lg:mx-0 mb-8">
+              <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="w-12 h-[2px] bg-[#0e7065] mx-auto lg:mx-0 mb-6" />
+              <motion.p initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-[#1a1a1a]/70 font-sans text-base md:text-lg leading-relaxed max-w-md mx-auto lg:mx-0 mb-8">
                 Our portfolio features proven, high-impact treatments across critical therapeutic segments.
               </motion.p>
               <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
-                <Link to="/products" className="inline-flex items-center justify-center px-8 py-3.5 bg-[#0e7065] text-white font-sans font-bold text-[13px] uppercase tracking-widest rounded-full hover:bg-[#116259] hover:-translate-y-1 transition-all shadow-xl hover:shadow-2xl">
-                  Explore Products
+                <Link to="/products" className="inline-flex items-center justify-center px-8 py-3.5 bg-[#0e7065] text-white font-sans font-bold text-[13px] uppercase tracking-widest rounded-full hover:bg-[#116259] hover:-translate-y-1 transition-all shadow-lg shadow-[#0e7065]/20">
+                  EXPLORE PRODUCTS
                 </Link>
               </motion.div>
             </div>
@@ -313,10 +284,11 @@ const Home = () => {
                     hidden: { opacity: 0, scale: 0.9 },
                     visible: { opacity: 1, scale: 1, transition: { type: "spring", stiffness: 100 } }
                   }}
-                  className={`bg-white rounded-[24px] p-2 shadow-2xl h-[140px] md:h-[180px] lg:h-[200px] flex items-center justify-center overflow-hidden hover:scale-105 transition-transform duration-300 relative group ${idx === 2 ? 'col-span-2 w-[calc(50%-0.5rem)] lg:w-[calc(50%-0.75rem)] mx-auto' : 'w-full'}`}
+                  className={`bg-[#f0f4f4] rounded-[24px] p-2 shadow-[0_8px_20px_rgb(0,0,0,0.06)] border border-[#0e7065]/5 h-[140px] md:h-[180px] lg:h-[200px] flex items-center justify-center hover:scale-105 transition-transform duration-300 relative group ${idx === 2 ? 'col-span-2 w-[calc(50%-0.5rem)] lg:w-[calc(50%-0.75rem)] mx-auto' : 'w-full'}`}
                 >
-                  <img src={img} alt={`Flagship ${idx + 1}`} className="w-full h-full object-cover rounded-2xl transition-transform duration-500 group-hover:scale-110" />
-                  <div className="absolute inset-0 bg-[#0e7065]/10 group-hover:bg-transparent transition-colors duration-300 rounded-[24px]" />
+                  <div className="w-full h-full rounded-[16px] overflow-hidden relative">
+                    <img src={img} alt={`Flagship ${idx + 1}`} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                  </div>
                 </motion.div>
               ))}
             </motion.div>

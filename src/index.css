@@ -1,6 +1,13 @@
 @import "tailwindcss";
 @config "../tailwind.config.js";
 
+@theme {
+  --font-sans: "Montserrat", sans-serif;
+  --font-display: "Montserrat", sans-serif;
+  --font-heading: "Montserrat", sans-serif;
+  --font-accent: "Montserrat", sans-serif;
+}
+
 @layer base {
   body {
     @apply font-sans antialiased text-gray-800 bg-[#fdfbf7];
