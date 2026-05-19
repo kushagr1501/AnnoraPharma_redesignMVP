@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import { motion } from 'framer-motion';
 import PageBanner from '../components/PageBanner';
 
@@ -65,19 +65,19 @@ export default function Products() {
 
             {/* Navigation Arrows */}
             <div className="flex gap-4 mt-8">
-              <button 
-                onClick={() => scroll('left')} 
+              <button
+                onClick={() => scroll('left')}
                 className="p-3 rounded-full border border-[#1a1a1a]/20 text-[#1a1a1a] bg-white hover:bg-[#1a1a1a] hover:text-white transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5"
                 aria-label="Scroll left"
               >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6" /></svg>
               </button>
-              <button 
-                onClick={() => scroll('right')} 
+              <button
+                onClick={() => scroll('right')}
                 className="p-3 rounded-full border border-[#1a1a1a]/20 text-[#1a1a1a] bg-white hover:bg-[#1a1a1a] hover:text-white transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5"
                 aria-label="Scroll right"
               >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6" /></svg>
               </button>
             </div>
           </motion.div>

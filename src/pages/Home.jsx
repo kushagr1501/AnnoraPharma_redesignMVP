@@ -1,12 +1,10 @@
-import React, { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useMotionValue, AnimatePresence, useScroll, useTransform } from 'framer-motion';
-import annoraLogo from '../assets/Annora_Logo-removebg-preview.png';
 import heroBg from '../assets/B2.PNG';
 import imgB1 from '../assets/B1.PNG';
 import imgB2 from '../assets/B2.PNG';
 import imgB3 from '../assets/B3.PNG';
-import imgB4 from '../assets/B4.PNG';
 import imgB5 from '../assets/B5.PNG';
 import imgB6 from '../assets/B6.PNG';
 import imgB7 from '../assets/B7.PNG';
@@ -50,6 +48,22 @@ const Home = () => {
     }
   }, []);
 
+  // Carousel Data (Images only, text is static)
+  const heroSlides = [
+    heroBg,
+    imgB7,
+    imgB1
+  ];
+
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, []);
+
   const { scrollY } = useScroll();
   const yBg = useTransform(scrollY, [0, 1000], [0, 300]);
   const yContent = useTransform(scrollY, [0, 1000], [0, 150]);
@@ -58,69 +72,74 @@ const Home = () => {
   return (
     <>
       {/* ─── Main: Hero Section ─── */}
-      <motion.section
-        initial="hidden"
-        animate={isLoaded ? "visible" : "hidden"}
-        className="relative w-full h-[100dvh] flex flex-col justify-between overflow-hidden bg-[#0a0a0a]"
+      <section
+        className="relative w-full overflow-hidden bg-[#0a0a0a]"
+        style={{ height: '100dvh' }}
       >
-        {/* Full-screen background image — dimmed for mood with parallax */}
-        <motion.div style={{ y: yBg }} className="absolute inset-0 w-full h-full">
-          <motion.img
-            initial={{ scale: 1.08 }}
-            animate={isLoaded ? { scale: 1 } : { scale: 1.08 }}
-            transition={{ duration: 20, ease: 'linear' }}
-            src={heroBg}
-            onLoad={() => setIsLoaded(true)}
-            alt="Annora Pharma manufacturing facility"
-            fetchPriority="high"
-            loading="eager"
-            className="w-full h-full object-cover object-[0%_20%]"
-          />
-        </motion.div>
-        <div className="absolute inset-0 bg-black/20" />
-        <div className="absolute inset-y-0 left-0 w-full md:w-[80%] lg:w-[70%] bg-gradient-to-r from-[#0e7065] via-[#0e7065]/80 to-transparent pointer-events-none" />
-        <div className="absolute inset-y-0 left-0 w-full md:w-[60%] bg-gradient-to-r from-[#0e7065] to-transparent mix-blend-multiply opacity-50 pointer-events-none" />
-        <div className="pt-28" />
 
-        <motion.div
-          style={{ y: yContent, opacity: opacityContent }}
-          className="relative z-10 flex-1 flex items-center justify-start px-6 md:px-12 lg:px-24 xl:px-32"
-        >
-          <div className="text-left max-w-4xl">
+        {/* Right-side Background Image Carousel */}
+        <div className="absolute top-0 right-0 bottom-0 w-full md:w-[50%] h-full z-0">
+          <AnimatePresence mode="popLayout">
             <motion.div
-              initial={{ y: 50, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              key={currentSlide}
+              initial={{ opacity: 0, scale: 1.05 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1.2, ease: 'easeInOut' }}
+              className="absolute inset-0 w-full h-full"
             >
-              <h1 className="font-heading font-semibold text-white text-[3rem] md:text-[4.5rem] lg:text-[5.5rem] leading-[1.05] tracking-[-0.02em] drop-shadow-lg">
-                THE PROMISE OF A<br />HEALTHIER WORLD
+              <img
+                src={heroSlides[currentSlide]}
+                alt="Annora Pharma"
+                className="w-full h-full object-cover object-[center_20%]"
+              />
+            </motion.div>
+          </AnimatePresence>
+          {/* Subtle top overlay for navbar readability on light images */}
+          <div className="absolute top-0 left-0 right-0 h-[120px] bg-gradient-to-b from-black/45 to-transparent pointer-events-none z-10" />
+        </div>
+
+        {/* Left Side: Solid Green Block */}
+        <div className="absolute left-0 inset-y-0 w-full md:w-[50%] bg-[#0e7065] z-10 flex flex-col justify-center px-6 md:px-12 lg:px-16 xl:px-20 pt-[100px] lg:pt-[120px] pb-10">
+
+          {/* Text Content */}
+          <div className="flex-1 flex flex-col justify-center max-w-2xl relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              className="text-left"
+            >
+              <h1 className="font-heading font-semibold text-white text-[2rem] md:text-[2.6rem] lg:text-[3.2rem] leading-[1.15] tracking-[-0.01em]">
+                THE PROMISE OF A <br /> HEALTHIER <span className="text-[#a8e6cf]">WORLD</span>.
               </h1>
             </motion.div>
-
-            {/* ss */}
           </div>
-        </motion.div>
 
-        {/* Bottom bar — company info + CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="relative z-10 w-full border-t border-white/10 px-6 md:px-10 lg:px-12 xl:px-16"
-        >
-          <div className="max-w-[1600px] mx-auto flex flex-col md:flex-row items-start md:items-center justify-between py-6 lg:py-8 gap-6">
-            <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-10">
-              <p className="text-white/40 text-[12px] font-accent tracking-[0.2em] uppercase">
-                Annora Pharma-FZ LLC · UAE
-              </p>
-              <p className="text-white/50 text-[13px] lg:text-[14px] font-sans leading-relaxed max-w-md">
-                Marketing and supply of best-in-class branded generic medicine — transforming lives through affordable medication.
-              </p>
+          {/* Bottom Subtitle & Carousel Indicators */}
+          <div className="flex flex-col items-start border-t border-white/20 pt-6 mt-8 relative z-10">
+            <div className="flex items-center gap-2 mb-4">
+              {heroSlides.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setCurrentSlide(i)}
+                  aria-label={`Go to slide ${i + 1}`}
+                  className={`h-[3px] transition-all duration-300 ${i === currentSlide ? 'w-10 bg-white' : 'w-4 bg-white/30 hover:bg-white/50'}`}
+                />
+              ))}
             </div>
 
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+              className="text-white/85 text-[13px] lg:text-[14px] font-sans leading-relaxed max-w-sm"
+            >
+              Marketing and supply of best-in-class branded generic medicine — transforming lives through affordable medication.
+            </motion.p>
           </div>
-        </motion.div>
-      </motion.section>
+        </div>
+      </section>
 
       {/* ─── About Annora ─── */}
       <section className="w-full bg-[#FAFAF8] py-20 lg:py-32 px-6 md:px-12 lg:px-24 xl:px-32 relative overflow-hidden">
@@ -182,9 +201,9 @@ const Home = () => {
         </div>
 
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24 xl:px-32">
-          
+
           {/* Heading aligned to right */}
-          <motion.div 
+          <motion.div
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={fadeUp}
             className="flex justify-start lg:justify-end mb-12 lg:mb-16"
           >
@@ -195,7 +214,7 @@ const Home = () => {
 
           {/* Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            
+
             {[
               {
                 icon: Eye,
@@ -228,7 +247,7 @@ const Home = () => {
                 desc: "We have a deep-rooted sense of responsibility towards all our stakeholders, striving relentlessly to deliver on those responsibilities."
               }
             ].map((val, idx) => (
-              <motion.div 
+              <motion.div
                 key={idx}
                 initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={fadeUp}
                 className="bg-[#FAFAF8]/95 backdrop-blur-sm rounded-[24px] p-8 lg:p-10 shadow-2xl shadow-black/20 border border-white/10 hover:-translate-y-1 transition-all duration-300 group"
@@ -252,7 +271,7 @@ const Home = () => {
 
           {/* Left: Light Area */}
           <div className="w-full lg:w-[45%] bg-[#FAFAF8] p-8 md:p-12 lg:p-16 xl:p-24 flex flex-col justify-center relative overflow-hidden">
-            
+
             <div className="relative z-10 text-center lg:text-left mb-12 lg:mb-16">
               <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="font-display text-[#1a1a1a] text-4xl md:text-5xl lg:text-[3.5rem] mb-4 font-light">
                 Flagship Products

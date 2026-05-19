@@ -17,15 +17,8 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
 
-  // Determine text colors based on whether we are on the Home page
-  const isHome = location.pathname === '/';
-  
-  // If not home, we might want a dark text for the navbar, or a solid background. 
-  // Let's use a solid teal or dark background for non-home pages so white text still works, 
-  // or we change text to dark. Let's make the background dark on non-home pages.
-  const headerClass = isHome 
-    ? "absolute top-0 left-0 right-0 z-50 px-6 md:px-10 lg:px-12 xl:px-16 py-6 lg:py-8"
-    : "sticky top-0 left-0 right-0 z-50 bg-[#0e7065] px-6 md:px-10 lg:px-12 xl:px-16 py-4 shadow-md";
+  // Transparent navbar that overlays on top of the hero section
+  const headerClass = "fixed top-0 left-0 right-0 z-50 bg-transparent px-6 md:px-10 lg:px-12 xl:px-16 py-4";
 
   return (
     <>
@@ -34,6 +27,7 @@ export default function Navbar() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         className={headerClass}
+        style={{ '--nav-h': '72px' }}
       >
         <div className="max-w-[1600px] mx-auto w-full flex items-center justify-between">
           <Link to="/">
@@ -43,7 +37,7 @@ export default function Navbar() {
             {navLinks.map((link) => (
               <Link key={link.label} to={link.href}
                 className={`text-[11px] xl:text-[12px] uppercase tracking-[0.15em] font-accent transition-colors whitespace-nowrap ${link.bold
-                  ? 'text-white font-bold hover:text-[#e69882]'
+                  ? 'text-white font-bold hover:text-[#a8e6cf]'
                   : 'text-white/70 hover:text-white'
                   }`}>
                 {link.label}
