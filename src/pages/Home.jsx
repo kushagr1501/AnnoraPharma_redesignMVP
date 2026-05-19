@@ -73,13 +73,11 @@ const Home = () => {
     <>
       {/* ─── Main: Hero Section ─── */}
       <section
-        className="relative w-full overflow-hidden bg-[#0a0a0a]"
-        style={{ height: '100dvh' }}
+        className="relative w-full overflow-hidden bg-[#0e7065] md:h-[100dvh]"
       >
-
-        {/* Right-side Background Image Carousel */}
-        <div className="absolute top-0 right-0 bottom-0 w-full md:w-[50%] h-full z-0">
-          <AnimatePresence mode="popLayout">
+        {/* Image Carousel — Now full width, but image is masked via gradient */}
+        <div className="relative w-full h-[45vh] md:absolute md:top-0 md:right-0 md:bottom-0 md:w-[60%] md:h-full z-0 overflow-hidden">
+          <AnimatePresence>
             <motion.div
               key={currentSlide}
               initial={{ opacity: 0, scale: 1.05 }}
@@ -91,33 +89,42 @@ const Home = () => {
               <img
                 src={heroSlides[currentSlide]}
                 alt="Annora Pharma"
-                className="w-full h-full object-cover object-[center_20%]"
+                className="w-full h-full object-cover object-[50%_center] md:object-[70%_center]"
               />
             </motion.div>
           </AnimatePresence>
-          {/* Subtle top overlay for navbar readability on light images */}
-          <div className="absolute top-0 left-0 right-0 h-[120px] bg-gradient-to-b from-black/45 to-transparent pointer-events-none z-10" />
         </div>
 
-        {/* Left Side: Solid Green Block */}
-        <div className="absolute left-0 inset-y-0 w-full md:w-[50%] bg-[#0e7065] z-10 flex flex-col justify-center px-6 md:px-12 lg:px-16 xl:px-20 pt-[100px] lg:pt-[120px] pb-10">
+        {/* Full-width Teal Gradient Background to mask the left side completely */}
+        {/* We use a solid block of color that fades perfectly into the right */}
+        <div 
+          className="absolute top-0 right-0 bottom-0 w-[60%] h-full z-[1] pointer-events-none hidden md:block"
+          style={{ 
+            background: 'linear-gradient(90deg, #0e7065 0%, rgba(14,112,101,0) 40%)' 
+          }}
+        />
 
-          {/* Text Content */}
-          <div className="flex-1 flex flex-col justify-center max-w-2xl relative z-10">
+        {/* Top overlay for navbar readability */}
+        <div className="absolute top-0 left-0 right-0 h-[120px] bg-gradient-to-b from-black/40 to-transparent pointer-events-none z-[2]" />
+
+        {/* Text Content */}
+        <div className="relative md:absolute left-0 md:inset-y-0 w-full md:w-[50%] lg:w-[45%] z-10 flex flex-col justify-start md:justify-center bg-[#0e7065] md:bg-transparent pl-4 pr-6 md:pl-10 md:pr-12 lg:pl-14 lg:pr-16 xl:pl-16 xl:pr-20 pt-8 md:pt-[100px] lg:pt-[120px] pb-10 pointer-events-auto">
+
+          <div className="flex-1 flex flex-col justify-center max-w-2xl">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
               className="text-left"
             >
-              <h1 className="font-heading font-semibold text-white text-[2rem] md:text-[2.6rem] lg:text-[3.2rem] leading-[1.15] tracking-[-0.01em]">
-                THE PROMISE OF A <br /> HEALTHIER <span className="text-[#a8e6cf]">WORLD</span>.
+              <h1 className="font-heading font-semibold text-white text-[2rem] md:text-[2.6rem] lg:text-[3.2rem] leading-[1.15] tracking-[-0.01em] whitespace-nowrap">
+                THE PROMISE OF A <br /> HEALTHIER <span className="text-[#a8e6cf]">WORLD.</span>
               </h1>
             </motion.div>
           </div>
 
           {/* Bottom Subtitle & Carousel Indicators */}
-          <div className="flex flex-col items-start border-t border-white/20 pt-6 mt-8 relative z-10">
+          <div className="flex flex-col items-start pt-6 mt-8">
             <div className="flex items-center gap-2 mb-4">
               {heroSlides.map((_, i) => (
                 <button
@@ -142,7 +149,7 @@ const Home = () => {
       </section>
 
       {/* ─── About Annora ─── */}
-      <section className="w-full bg-[#FAFAF8] py-20 lg:py-32 px-6 md:px-12 lg:px-24 xl:px-32 relative overflow-hidden">
+      <section className="w-full bg-[#FAFAF8] pt-8 pb-16 md:py-20 lg:py-32 px-6 md:px-12 lg:px-24 xl:px-32 relative overflow-hidden">
         {/* Subtle background decoration */}
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#0e7065]/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3 pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#e69882]/10 rounded-full blur-[100px] translate-y-1/3 -translate-x-1/4 pointer-events-none" />
