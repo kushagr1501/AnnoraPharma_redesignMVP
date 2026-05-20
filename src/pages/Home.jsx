@@ -1,6 +1,6 @@
-import { useRef, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { motion, useMotionValue, AnimatePresence, useScroll, useTransform } from 'framer-motion';
+import { motion, AnimatePresence, useScroll } from 'framer-motion';
 import heroBg from '../assets/B2.PNG';
 import imgB1 from '../assets/B1.PNG';
 import imgB2 from '../assets/B2.PNG';
@@ -10,23 +10,23 @@ import imgB6 from '../assets/B6.PNG';
 import imgB7 from '../assets/B7.PNG';
 import { Eye, Target, BookOpen, ShieldCheck, Zap, HeartHandshake } from 'lucide-react';
 
-function Magnetic({ children, className, as: Tag = 'div' }) {
-  const ref = useRef(null);
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-  const handleMouse = (e) => {
-    const r = ref.current.getBoundingClientRect();
-    x.set((e.clientX - r.left - r.width / 2) * 0.2);
-    y.set((e.clientY - r.top - r.height / 2) * 0.2);
-  };
-  const reset = () => { x.set(0); y.set(0); };
-  return (
-    <motion.div ref={ref} style={{ x, y }} onMouseMove={handleMouse} onMouseLeave={reset}
-      className={className} transition={{ type: 'spring', stiffness: 150, damping: 15 }}>
-      {children}
-    </motion.div>
-  );
-}
+// function Magnetic({ children, className, as: Tag = 'div' }) {
+//   const ref = useRef(null);
+//   const x = useMotionValue(0);
+//   const y = useMotionValue(0);
+//   const handleMouse = (e) => {
+//     const r = ref.current.getBoundingClientRect();
+//     x.set((e.clientX - r.left - r.width / 2) * 0.2);
+//     y.set((e.clientY - r.top - r.height / 2) * 0.2);
+//   };
+//   const reset = () => { x.set(0); y.set(0); };
+//   return (
+//     <motion.div ref={ref} style={{ x, y }} onMouseMove={handleMouse} onMouseLeave={reset}
+//       className={className} transition={{ type: 'spring', stiffness: 150, damping: 15 }}>
+//       {children}
+//     </motion.div>
+//   );
+// }
 
 /* ─── Stagger children ─── */
 const fadeUp = {
@@ -65,18 +65,18 @@ const Home = () => {
   }, []);
 
   const { scrollY } = useScroll();
-  const yBg = useTransform(scrollY, [0, 1000], [0, 300]);
-  const yContent = useTransform(scrollY, [0, 1000], [0, 150]);
-  const opacityContent = useTransform(scrollY, [0, 500], [1, 0]);
+  // const yBg = useTransform(scrollY, [0, 1000], [0, 300]);
+  // const yContent = useTransform(scrollY, [0, 1000], [0, 150]);
+  // const opacityContent = useTransform(scrollY, [0, 500], [1, 0]);
 
   return (
     <>
       {/* ─── Main: Hero Section ─── */}
       <section
-        className="relative w-full overflow-hidden bg-[#0e7065] md:h-[100dvh]"
+        className="relative w-full overflow-hidden bg-white md:bg-[#0e7065] min-h-[100dvh] md:h-[100dvh]"
       >
-        {/* Image Carousel — Now full width, but image is masked via gradient */}
-        <div className="relative w-full h-[45vh] md:absolute md:top-0 md:right-0 md:bottom-0 md:w-[60%] md:h-full z-0 overflow-hidden">
+        {/* Image Carousel — Now taking up 75% to reduce the green space, and masked via gradient */}
+        <div className="relative w-full h-[45vh] md:absolute md:top-0 md:right-0 md:bottom-0 md:w-[75%] md:h-full z-0 overflow-hidden">
           <AnimatePresence>
             <motion.div
               key={currentSlide}
@@ -96,11 +96,11 @@ const Home = () => {
         </div>
 
         {/* Full-width Teal Gradient Background to mask the left side completely */}
-        {/* We use a solid block of color that fades perfectly into the right */}
-        <div 
-          className="absolute top-0 right-0 bottom-0 w-[60%] h-full z-[1] pointer-events-none hidden md:block"
-          style={{ 
-            background: 'linear-gradient(90deg, #0e7065 0%, rgba(14,112,101,0) 40%)' 
+        {/* We use a mask slightly wider than the image (76% vs 75%) that starts with a tiny bit of solid color to seamlessly hide any subpixel rendering gaps on the left edge */}
+        <div
+          className="absolute top-0 right-0 bottom-0 w-[76%] h-full z-[1] pointer-events-none hidden md:block"
+          style={{
+            background: 'linear-gradient(90deg, #0e7065 0%, #0e7065 5%, rgba(14,112,101,0) 45%)'
           }}
         />
 
@@ -149,7 +149,7 @@ const Home = () => {
       </section>
 
       {/* ─── About Annora ─── */}
-      <section className="w-full bg-[#FAFAF8] pt-8 pb-16 md:py-20 lg:py-32 px-6 md:px-12 lg:px-24 xl:px-32 relative overflow-hidden">
+      <section className="w-full bg-[#FAFAF8] py-20 lg:py-32 px-6 md:px-12 lg:px-24 xl:px-32 relative overflow-hidden">
         {/* Subtle background decoration */}
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#0e7065]/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3 pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#e69882]/10 rounded-full blur-[100px] translate-y-1/3 -translate-x-1/4 pointer-events-none" />
