@@ -77,7 +77,7 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row items-center gap-6">
             <img src={annoraLogo} alt="Annora" className="h-10 object-contain filter brightness-0 invert opacity-90" />
             <p className="text-white/70 text-xs md:text-sm font-sans tracking-widest uppercase text-center md:text-left">
-              Copyright © 2026 Annora FZ-LLC, All Rights Reserved.
+              Copyright © 2026 Annora Pharma FZ-LLC, All Rights Reserved.
             </p>
           </div>
           <div className="flex flex-wrap justify-center gap-6 md:gap-8">
