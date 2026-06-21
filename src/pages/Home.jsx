@@ -182,7 +182,7 @@ const Home = () => {
               className="lg:col-span-8 flex flex-col pt-1"
             >
               <p className="text-[#1a1a1a]/80 text-[1.25rem] lg:text-[1.4rem] font-sans leading-[1.8] max-w-[95%]">
-                <span className="font-bold text-[#0e7065]">Annora Pharma-FZ LLC</span> is a UAE based pharmaceutical company engaged in marketing and supply of best-in-class branded generic medicine, to serve the unmet needs of the country.
+                <span className="font-bold text-[#0e7065]">Annora Pharma FZ-LLC</span> is a UAE based pharmaceutical company engaged in marketing and supply of best-in-class branded generic medicine, to serve the unmet needs of the country.
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 mt-12">
@@ -273,7 +273,7 @@ const Home = () => {
         </div>
       </section>
       {/* Flagship Products Section (Split Layout) */}
-      <section className="w-full relative bg-white mt-12 lg:mt-16 pb-12 lg:pb-16">
+      <section className="w-full relative bg-white mt-12 lg:mt-16">
         <div className="flex flex-col lg:flex-row w-full min-h-[700px]">
 
           {/* Left: Light Area */}

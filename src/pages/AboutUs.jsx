@@ -25,7 +25,7 @@ export default function AboutUs() {
             </h2>
             <div className="w-16 h-[2px] bg-[#e69882] mx-auto mb-8" />
             <p className="text-[#1a1a1a]/70 text-xl lg:text-[1.4rem] font-sans leading-relaxed">
-              <span className="font-bold text-[#1a1a1a]">Annora Pharma-FZ LLC</span> is a UAE based pharmaceutical company engaged in marketing and supply of best-in-class branded generic medicine, to serve the unmet needs of the country.
+              <span className="font-bold text-[#1a1a1a]">Annora Pharma FZ-LLC</span> is a UAE based pharmaceutical company engaged in marketing and supply of best-in-class branded generic medicine, to serve the unmet needs of the country.
             </p>
           </motion.div>
 

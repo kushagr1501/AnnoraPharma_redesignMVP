@@ -9,10 +9,10 @@ const fadeUp = {
 
 export default function Pharmacovigilance() {
   return (
-    <div className="w-full relative bg-[#FAFAF8] min-h-screen">
+    <div className="w-full relative bg-[#FAFAF8]">
       <PageBanner title="Pharmacovigilance" />
 
-      <section className="w-full py-20 lg:py-32 px-6 md:px-12 lg:px-24 xl:px-32 relative overflow-hidden">
+      <section className="w-full pt-20 lg:pt-32 pb-10 lg:pb-12 px-6 md:px-12 lg:px-24 xl:px-32 relative overflow-hidden">
 
 
         <div className="max-w-[1400px] mx-auto relative z-10">

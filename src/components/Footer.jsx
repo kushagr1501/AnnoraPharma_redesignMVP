@@ -10,7 +10,7 @@ const Footer = () => {
         {/* Top Section */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 mb-16 lg:mb-24">
 
-          <div className="lg:col-span-6 flex flex-col items-center lg:items-start text-center lg:text-left">
+          <div className="lg:col-span-5 flex flex-col items-center lg:items-start text-center lg:text-left">
             <motion.h3
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -36,8 +36,8 @@ const Footer = () => {
             </motion.div>
           </div>
 
-          <div className="lg:col-span-3 lg:col-start-8 flex flex-col items-center lg:items-start gap-5">
-            <h4 className="text-white/50 text-[10px] tracking-[0.25em] uppercase font-accent font-bold mb-2 text-center lg:text-left">Company</h4>
+          <div className="lg:col-span-2 flex flex-col items-center lg:items-start gap-5">
+            <h4 className="text-[#a8e6cf] text-xs tracking-[0.2em] uppercase font-sans font-bold mb-4 text-center lg:text-left">Company</h4>
             {[
               { name: 'About Us', path: '/about' },
               { name: 'Products', path: '/products' },
@@ -54,21 +54,34 @@ const Footer = () => {
           </div>
 
           <div className="lg:col-span-2 flex flex-col items-center lg:items-start gap-5 mt-8 lg:mt-0">
-            <h4 className="text-white/50 text-[10px] tracking-[0.25em] uppercase font-sans font-bold mb-2 text-center lg:text-left">Social</h4>
-            <a href="#" className="font-sans text-lg lg:text-xl text-white/80 hover:text-white transition-colors relative overflow-hidden group w-fit">
+            <h4 className="text-[#a8e6cf] text-xs tracking-[0.2em] uppercase font-sans font-bold mb-4 text-center lg:text-left">Social</h4>
+            <a href="#" className="font-sans text-base lg:text-lg text-white/80 hover:text-white transition-colors relative overflow-hidden group w-fit">
               <span className="block transition-transform duration-500 group-hover:-translate-y-[120%]">LinkedIn</span>
               <span className="absolute inset-0 translate-y-[120%] transition-transform duration-500 group-hover:translate-y-0">LinkedIn</span>
             </a>
-            <a href="#" className="font-sans text-lg lg:text-xl text-white/80 hover:text-white transition-colors relative overflow-hidden group w-fit">
+            <a href="#" className="font-sans text-base lg:text-lg text-white/80 hover:text-white transition-colors relative overflow-hidden group w-fit">
               <span className="block transition-transform duration-500 group-hover:-translate-y-[120%]">Twitter</span>
               <span className="absolute inset-0 translate-y-[120%] transition-transform duration-500 group-hover:translate-y-0">Twitter</span>
             </a>
 
-            <h4 className="text-white/50 text-[10px] tracking-[0.25em] uppercase font-sans font-bold mt-6 mb-2 text-center lg:text-left">Partner</h4>
-            <a href="https://hetero.com/" target="_blank" rel="noopener noreferrer" className="font-sans text-lg lg:text-xl text-white/80 hover:text-white transition-colors relative overflow-hidden group w-fit">
+            <h4 className="text-[#a8e6cf] text-xs tracking-[0.2em] uppercase font-sans font-bold mt-6 mb-4 text-center lg:text-left">Partner</h4>
+            <a href="https://hetero.com/" target="_blank" rel="noopener noreferrer" className="font-sans text-base lg:text-lg text-white/80 hover:text-white transition-colors relative overflow-hidden group w-fit">
               <span className="block transition-transform duration-500 group-hover:-translate-y-[120%]">Hetero</span>
               <span className="absolute inset-0 translate-y-[120%] transition-transform duration-500 group-hover:translate-y-0">Hetero</span>
             </a>
+          </div>
+
+          <div className="lg:col-span-3 flex flex-col items-center lg:items-start gap-5 mt-8 lg:mt-0">
+            <h4 className="text-[#a8e6cf] text-xs tracking-[0.2em] uppercase font-sans font-bold mb-4 text-center lg:text-left">Scientific Office</h4>
+            <div className="text-white/80 font-sans text-base lg:text-lg text-center lg:text-left leading-relaxed">
+              <p className="font-bold text-white mb-1">Annora Pharma FZ-LLC</p>
+              Unit 3012, Block C, Al Razi Medical Complex,<br />
+              Building No.64, Dubai Healthcare City,<br />
+              P.O. Box 505259, Dubai, United Arab Emirates<br />
+              <br />
+              Ph: +97142774518<br />
+              Fax: +97142774398
+            </div>
           </div>
         </div>
 
