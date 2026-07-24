@@ -164,15 +164,12 @@ const Home = () => {
               className="lg:col-span-8 flex flex-col pt-1"
             >
               <p className="text-[#1a1a1a]/80 text-[1.25rem] lg:text-[1.4rem] font-sans leading-[1.8] max-w-[95%]">
-                <span className="font-bold text-[#0e7065]">Annora Pharma FZ-LLC</span> is a UAE based pharmaceutical company engaged in marketing and supply of best-in-class branded generic medicine, to serve the unmet needs of the country.
+                <span className="font-bold text-[#0e7065]">Annora</span>, a subsidiary of the <a href="https://www.hetero.com/" target="_blank" rel="noopener noreferrer" className="text-[#0e7065] underline hover:text-[#258f84] transition-colors">Hetero Group</a>, which is one of the world’s leading producers of key Active Pharmaceutical Ingredients (APIs) and generic formulations, with a presence in 145+ countries and backed by more than 30 years of experience in the pharma sector. We endeavour to serve patients by transforming science and technology into therapies that improve health outcomes and enhance people’s lives.
               </p>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 mt-12">
-                <p className="text-[#1a1a1a]/50 text-[12px] lg:text-[13px] font-sans leading-[2.2] font-light">
-                  We are committed to transform lives by providing easy access to high quality and affordable medication to patients and healthcare partners. To ensure delivery of the best-in-class quality products to our customers, we source products from USFDA/European approved manufacturing facilities from our partners across the globe.
-                </p>
-                <p className="text-[#1a1a1a]/50 text-[12px] lg:text-[13px] font-sans leading-[2.2] font-light">
-                  Backed by strong global partners having state-of-the-art manufacturing facilities and highly qualified research team. We have a well-entrenched supply and distribution network to ensure faster and smooth supply of the medicines.
+              <div className="mt-8">
+                <p className="text-[#1a1a1a]/80 text-[1.1rem] lg:text-[1.2rem] font-sans leading-[1.8] font-medium max-w-[95%]">
+                  A trusted partner of choice for multinational pharma companies and major global procurement bodies.
                 </p>
               </div>
             </motion.div>
