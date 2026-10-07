@@ -1,14 +1,15 @@
 import { useRef } from 'react';
 import { motion } from 'framer-motion';
 import PageBanner from '../components/PageBanner';
+import productsBanner from '../assets/products-banner.png';
 
-import imgB1 from '../assets/B1.PNG';
-import imgB2 from '../assets/B2.PNG';
-import imgB3 from '../assets/B3.PNG';
-import imgB4 from '../assets/B4.PNG';
-import imgB5 from '../assets/B5.PNG';
-import imgB6 from '../assets/B6.PNG';
-import imgB7 from '../assets/B7.PNG';
+import imgB1 from '../assets/B1.webp';
+import imgB2 from '../assets/B2.webp';
+import imgB3 from '../assets/B3.webp';
+import imgB4 from '../assets/B4.webp';
+import imgB5 from '../assets/B5.webp';
+import imgB6 from '../assets/B6.webp';
+import imgB7 from '../assets/B7.webp';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -41,12 +42,12 @@ export default function Products() {
 
   return (
     <div className="w-full relative bg-[#FAFAF8] min-h-screen">
-      <PageBanner title="Products" />
+      <PageBanner title="Products" image={productsBanner} imagePosition="object-[60%_center] md:object-center" heightClass="h-[50vh] min-h-[360px] md:h-[70vh] md:min-h-[500px]" />
 
 
 
       {/* ─── Product Categories Section ─── */}
-      <section className="w-full bg-[#FAFAF8] py-20 lg:py-32 px-6 md:px-12 lg:px-24 xl:px-32 relative overflow-hidden">
+      <section className="w-full bg-[#FAFAF8] pt-10 lg:pt-14 pb-20 lg:pb-32 px-6 md:px-12 lg:px-24 xl:px-32 relative overflow-hidden">
         {/* Subtle background decoration */}
 
 
